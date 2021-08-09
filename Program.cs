@@ -156,6 +156,275 @@ namespace ConsoleApp1
             #region 分治
 
             #endregion
+
+            #endregion
+
+            #region 两数之和 #1
+
+            #region 方法1，暴力求解
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    for (int j = i + 1; j < nums.Length; j++)
+            //    {
+            //        if (nums[i] + nums[j] == target)
+            //        {
+            //            return new int[] { i, j };
+            //        }
+            //    }
+            //}
+            //return null;
+            #endregion
+
+            #region 方法2
+            //Dictionary<int, int> dic = new Dictionary<int, int>();
+            //for (int i = 0; i < nums.Length; i++)
+            //{
+            //    int de = target - nums[i];
+            //    if (dic.ContainsKey(de))
+            //    {
+            //        return new int[] { i, dic[de] };
+            //    }
+            //    dic.Add(nums[i], i);
+            //}
+            //return null;
+            #endregion
+
+            #endregion
+
+            #region 合并两数组 #88
+            //int[] nums1 = new int[] { 1, 2, 3, 0, 0, 0 };
+            //int m = 3;
+            //int n = 3;
+            //int[] nums2 = new int[] { 2, 5, 6 };
+
+            #region 暴力赖皮求解
+            //for (int i = 0; i < n; i++)
+            //{
+            //    nums1[m + i] = nums2[i];
+            //}
+            //nums2.CopyTo(nums1, m);
+            //nums1 = nums1.OrderBy(t => t).ToArray();
+            //Array.Sort(nums1);
+            #endregion
+
+            #region 双指针
+            //int n1i = 0;
+            //int n2i = 0;
+            //int[] nnums1 = new int[m + n];
+            //for (int i = 0; i < m + n; i++)
+            //{
+            //    if (n1i >= m)
+            //    {
+            //        nnums1[i] = nums2[n2i];
+            //        n2i++;
+            //        continue;
+            //    }
+            //    if (n2i >= n)
+            //    {
+            //        nnums1[i] = nums1[n1i];
+            //        n1i++;
+            //        continue;
+            //    }
+            //    if (nums1[n1i] < nums2[n2i])
+            //    {
+            //        nnums1[i] = nums1[n1i];
+            //        n1i++;
+            //    }
+            //    else
+            //    {
+            //        nnums1[i] = nums2[n2i];
+            //        n2i++;
+            //    }
+            //}
+            //nnums1.CopyTo(nums1, 0);
+            #endregion
+
+            #endregion
+
+            #region 两个数组的交集Ⅱ #350
+            //int[] nums1, nums2;
+            //nums1 = new int[] { 3, 1, 2 };
+            //nums2 = new int[] { 1, 1 };
+            //int[] minArr = null;
+            //if (nums1.Length < nums2.Length)
+            //{
+            //    minArr = nums1;
+            //}
+            //else
+            //{
+            //    minArr = nums2;
+            //    nums2 = nums1;
+            //}
+            //Dictionary<int, int> dic = new Dictionary<int, int>();
+            //List<int> result = new List<int>();
+            //for (int i = 0; i < minArr.Length; i++)
+            //{
+            //    if (dic.ContainsKey(minArr[i]))
+            //    {
+            //        dic[minArr[i]]++;
+            //    }
+            //    else
+            //    {
+            //        dic.Add(minArr[i], 1);
+            //    }
+            //}
+            //for (int i = 0; i < nums2.Length; i++)
+            //{
+            //    if (dic.ContainsKey(nums2[i]) && dic[nums2[i]] > 0)
+            //    {
+            //        result.Add(nums2[i]);
+            //        if (dic[nums2[i]] > 1)
+            //        {
+            //            dic[nums2[i]]--;
+            //        }
+            //    }
+            //}
+            //result.ToArray();
+            #endregion
+
+            #region 买卖股票的最佳时机 #121
+            //int[] prices = new int[] { 7, 1, 5, 3, 6, 4 };
+            #region 简单循环----超时
+            //int max = 0;
+            //int minIndex = int.MaxValue;
+            //for (int i = 0; i < prices.Length; i++)
+            //{
+            //    //优化，后续更大的值不进行考虑
+            //    if (prices[i] >= minIndex)
+            //    {
+            //        continue;
+            //    }
+            //    for (int j = i + 1; j < prices.Length; j++)
+            //    {
+            //        if (prices[j] - prices[i] > max)
+            //        {
+            //            max = prices[j] - prices[i];
+            //        }
+            //        if (minIndex > prices[i])
+            //        {
+            //            minIndex = prices[i];
+            //        }
+            //    }
+            //}
+            //return max;
+            #endregion
+
+            #region 今日利润及算法
+            //int minPrice = prices[0];
+            //int maxPrice = 0;
+            //for (int i = 0; i < prices.Length; i++)
+            //{
+            //    //当日卖出最大利润
+            //    if (prices[i] - minPrice > maxPrice)
+            //    {
+            //        maxPrice = prices[i] - minPrice;
+            //    }
+            //    //记录前日最小金额
+            //    if (prices[i] < minPrice)
+            //    {
+            //        minPrice = prices[i];
+            //    }
+            //}
+            //return maxPrice;
+            #endregion
+
+            #endregion
+
+            #region 有效的数独 #36
+            //char[][] board = new char[9][];
+            //board[0] = new char[] { '8', '3', '.', '.', '7', '.', '.', '.', '.' };
+            //board[1] = new char[] { '6', '.', '.', '1', '9', '5', '.', '.', '.' };
+            //board[2] = new char[] { '.', '9', '8', '.', '.', '.', '.', '6', '.' };
+            //board[3] = new char[] { '8', '.', '.', '.', '6', '.', '.', '.', '3' };
+            //board[4] = new char[] { '4', '.', '.', '8', '.', '3', '.', '.', '1' };
+            //board[5] = new char[] { '7', '.', '.', '.', '2', '.', '.', '.', '6' };
+            //board[6] = new char[] { '.', '6', '.', '.', '.', '.', '2', '8', '.' };
+            //board[7] = new char[] { '.', '.', '.', '4', '1', '9', '.', '.', '5' };
+            //board[8] = new char[] { '.', '.', '.', '.', '8', '.', '.', '7', '9' };
+            //bool result = true;
+            //for (int i = 0; i < board.Length; i++)
+            //{
+            //    for (int j = 0; j < board[i].Length; j++)
+            //    {
+            //        if (board[i][j] == '.')
+            //        {
+            //            continue;
+            //        }
+            //        //行重复排查
+            //        for (int k = j + 1; k < board[i].Length; k++)
+            //        {
+            //            if (board[i][j] == board[i][k])
+            //            {
+            //                //有相等，错误
+            //                result = false;
+            //            }
+            //        }
+            //        //列重复排查
+            //        for (int k = i + 1; k < board.Length; k++)
+            //        {
+            //            if (board[i][j] == board[k][j])
+            //            {
+            //                //有相等，错误
+            //                result = false;
+            //            }
+            //        }
+            //        //3x3排查
+            //        //计算当前所属矩阵
+            //        int ii = i / 3;
+            //        int jj = j / 3;
+            //        int bii = ii * 3;
+            //        int bjj = jj * 3;
+            //        //验证非同行同列4个数字
+            //        if (board[i][j] == board[((i + 1) % 3) + bii][((j + 1) % 3) + bjj])
+            //        {
+            //            result = false;
+            //        }
+            //        else if (board[i][j] == board[((i + 1) % 3) + bii][((j + 2) % 3) + bjj])
+            //        {
+            //            result = false;
+            //        }
+            //        else if (board[i][j] == board[((i + 2) % 3) + bii][((j + 1) % 3) + bjj])
+            //        {
+            //            result = false;
+            //        }
+            //        else if (board[i][j] == board[((i + 2) % 3) + bii][((j + 2) % 3) + bjj])
+            //        {
+            //            result = false;
+            //        }
+            //    }
+            //}
+            //Console.WriteLine(result);
+            #endregion
+
+            #region 字符串中的第一个唯一字符 #387
+            string s = "loveleetcodevtcod";
+            #region 暴力循环 时间复杂度O(n2)
+            HashSet<char> hs = new HashSet<char>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (hs.Contains(c))
+                {
+                    continue;
+                }
+                bool hasValue = false;
+                for (int j = i + 1; j < s.Length; j++)
+                {
+                    if (c == s[j])
+                    {
+                        hs.Add(c);
+                        hasValue = true;
+                    }
+                }
+                if (!hasValue)
+                {
+                    Console.WriteLine(i);
+                    return;
+                }
+            }
+            Console.WriteLine(-1);
+            #endregion
+
             #endregion
         }
 
