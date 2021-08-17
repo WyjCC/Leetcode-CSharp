@@ -296,6 +296,43 @@ namespace ConsoleApp1
 
             #endregion
 
+            #region 环形链表 #141
+            //ListNode head = new ListNode(0);
+            #region 哈希表
+            //HashSet<ListNode> hs = new HashSet<ListNode>();
+            //while (head != null)
+            //{
+            //    if (hs.Contains(head))
+            //    {
+            //        return true;
+            //    }
+            //    hs.Add(head);
+            //    head = head.next;
+            //}
+            //return false;
+            #endregion
+
+            #region 快慢指针 (龟兔赛跑算法)
+            //ListNode fastNode = null;
+            //if (head == null)
+            //{
+            //    return false;
+            //}
+            //fastNode = head.next;
+            //while (head != null)
+            //{
+            //    if (fastNode != null && fastNode == head)
+            //    {
+            //        return true;
+            //    }
+            //    head = head.next;
+            //    fastNode = fastNode?.next?.next;
+            //}
+            //return false;
+            #endregion
+
+            #endregion
+
             #region 存在重复元素 #217
             //int[] nums = new int[] { };
             //HashSet<int> hsN = new HashSet<int>();
@@ -309,6 +346,28 @@ namespace ConsoleApp1
             //    hsN.Add(nums[i]);
             //}
             //Console.WriteLine(false);
+            #endregion
+
+            #region 有效的字母异位词 #242
+            //string s, t;
+            //s = t = "a";
+            //int[] ss = new int[26];
+            //for (int i = 0; i < s.Length; i++)
+            //{
+            //    ss[s[i] - 'a']++;
+            //}
+            //for (int i = 0; i < t.Length; i++)
+            //{
+            //    ss[t[i] - 'a']--;
+            //}
+            //for (int i = 0; i < ss.Length; i++)
+            //{
+            //    if (ss[i] != 0)
+            //    {
+            //        return false;
+            //    }
+            //}
+            //return true;
             #endregion
 
             #region 两个数组的交集Ⅱ #350
@@ -343,13 +402,41 @@ namespace ConsoleApp1
             //    if (dic.ContainsKey(nums2[i]) && dic[nums2[i]] > 0)
             //    {
             //        result.Add(nums2[i]);
-            //        if (dic[nums2[i]] > 1)
+            //        if (dic[nums2[i]] > 0)
             //        {
             //            dic[nums2[i]]--;
             //        }
             //    }
             //}
             //result.ToArray();
+            #endregion
+
+            #region 赎金信 #383
+            //string ransomNote, magazine;
+            //ransomNote = magazine = "";
+            //Dictionary<char, int> dic2 = new Dictionary<char, int>(magazine.Length);
+            //for (int i = 0; i < magazine.Length; i++)
+            //{
+            //    if (dic2.ContainsKey(magazine[i]))
+            //    {
+            //        dic2[magazine[i]]++;
+            //        continue;
+            //    }
+            //    dic2.Add(magazine[i], 1);
+            //}
+            //for (int i = 0; i < ransomNote.Length; i++)
+            //{
+            //    if (!dic2.ContainsKey(ransomNote[i]))
+            //    {
+            //        return false;
+            //    }
+            //    else if (dic2[ransomNote[i]] <= 0)
+            //    {
+            //        return false;
+            //    }
+            //    dic2[ransomNote[i]]--;
+            //}
+            //return true;
             #endregion
 
             #region 字符串中的第一个唯一字符 #387
@@ -381,6 +468,27 @@ namespace ConsoleApp1
             //Console.WriteLine(-1);
             #endregion
 
+            #region 一次循环 O(n)
+            //Dictionary<char, int> dic = new Dictionary<char, int>(s.Length);
+            //for (int i = 0; i < s.Length; i++)
+            //{
+            //    if (dic.ContainsKey(s[i]))
+            //    {
+            //        dic[s[i]]++;
+            //        continue;
+            //    }
+            //    dic.Add(s[i], 1);
+            //}
+            //for (int i = 0; i < s.Length; i++)
+            //{
+            //    if (dic[s[i]] == 1)
+            //    {
+            //        return i;
+            //    }
+            //}
+            //return -1;
+            #endregion
+
             #endregion
 
             #region 重塑矩阵 #566
@@ -400,25 +508,25 @@ namespace ConsoleApp1
             //}
             //int int2 = mat[0].Length;
             //int[][] newMat = new int[r][];
-            ////int indexr, indexc;
-            ////indexr = indexc = 0;
-            ////for (int i = 0; i < mat.Length; i++)
-            ////{
-            ////    for (int j = 0; j < mat[i].Length; j++)
-            ////    {
-            ////        if (indexc == 0)
-            ////        {
-            ////            newMat[indexr] = new int[c];
-            ////        }
-            ////        newMat[indexr][indexc] = mat[i][j];
-            ////        indexc++;
-            ////        if (indexc > c)
-            ////        {
-            ////            indexc = 0;
-            ////            indexr++;
-            ////        }
-            ////    }
-            ////}
+            //int indexr, indexc;
+            //indexr = indexc = 0;
+            //for (int i = 0; i < mat.Length; i++)
+            //{
+            //    for (int j = 0; j < mat[i].Length; j++)
+            //    {
+            //        if (indexc == 0)
+            //        {
+            //            newMat[indexr] = new int[c];
+            //        }
+            //        newMat[indexr][indexc] = mat[i][j];
+            //        indexc++;
+            //        if (indexc >= c)
+            //        {
+            //            indexc = 0;
+            //            indexr++;
+            //        }
+            //    }
+            //}
             //for (int i = 0; i < r * c; i++)
             //{
             //    if (i % c == 0)
@@ -432,10 +540,33 @@ namespace ConsoleApp1
 
         #region Func
 
+        #region 最大子序和 #53
+        #region 分治
+
+        #endregion
+        #endregion
+
         #endregion
     }
 
     #region Model
+
+    /// <summary>
+    /// 链表
+    /// </summary>
+    public class ListNode
+    {
+        public int val;
+        public ListNode next;
+        public ListNode(int x, ListNode next = null)
+        {
+            val = x;
+            this.next = next;
+        }
+    }
+
+
+    #region 最大子序和 #53
     #region 分治
     public class MaximumSubarray
     {
@@ -457,6 +588,8 @@ namespace ConsoleApp1
         public int ISum { get; set; }
     }
     #endregion
+    #endregion
+
     #endregion
 
 }
