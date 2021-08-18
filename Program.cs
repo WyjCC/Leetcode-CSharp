@@ -44,6 +44,97 @@ namespace ConsoleApp1
 
             #endregion
 
+            #region 合并两个有序链表 #21
+            ListNode l1, l2, l3, fl;
+            l1 = new ListNode(1, new ListNode(2, new ListNode(4, null)));
+            l2 = new ListNode(1, new ListNode(3, new ListNode(4, null)));
+
+            #region 复杂版
+            //l3 = fl = null;
+            //if (l1 == null && l2 == null)
+            //{
+            //    return fl;
+            //}
+            //while (l1 != null || l2 != null)
+            //{
+            //    ListNode temp = null;
+            //    if (l1 == null)
+            //    {
+            //        temp = l2;
+            //        l2 = null;
+            //    }
+            //    else if (l2 == null)
+            //    {
+            //        temp = l1;
+            //        l1 = null;
+            //    }
+            //    else if (l1.val <= l2.val)
+            //    {
+            //        temp = l1;
+            //        l1 = l1.next;
+            //    }
+            //    else
+            //    {
+            //        temp = l2;
+            //        l2 = l2.next;
+            //    }
+            //    if (fl == null)
+            //    {
+            //        fl = temp;
+            //    }
+            //    if (l3 == null)
+            //    {
+            //        l3 = temp;
+            //    }
+            //    else
+            //    {
+            //        l3.next = temp;
+            //        l3 = l3.next;
+            //    }
+            //}
+            //return fl;
+            #endregion
+
+            #region 思路简化版（迭代）
+            //l3 = fl = new ListNode(-1);
+            //while (l1 != null && l2 != null)
+            //{
+            //    if (l1.val <= l2.val)
+            //    {
+            //        l3.next = l1;
+            //        l1 = l1.next;
+            //    }
+            //    else
+            //    {
+            //        l3.next = l2;
+            //        l2 = l2.next;
+            //    }
+            //    l3 = l3.next;
+            //}
+            //l3.next = l1 == null ? l2 : l1;
+            //return fl.next;
+            #endregion
+
+            #region 递归
+            //if (l1 == null)
+            //{
+            //    return l2;
+            //}
+            //if (l2 == null)
+            //{
+            //    return l1;
+            //}
+            //if (l1.val <= l2.val)
+            //{
+            //    l1.next = MergeTwoLists(l1.next, l2);
+            //    return l1;
+            //}
+            //l2.next = MergeTwoLists(l1, l2.next);
+            //return l2;
+            #endregion
+
+            #endregion
+
             #region 有效的数独 #36
             //char[][] board = new char[9][];
             //board[0] = new char[] { '8', '3', '.', '.', '7', '.', '.', '.', '.' };
@@ -539,6 +630,25 @@ namespace ConsoleApp1
         }
 
         #region Func
+
+        public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            if (l1 == null)
+            {
+                return l2;
+            }
+            if (l2 == null)
+            {
+                return l1;
+            }
+            if (l1.val <= l2.val)
+            {
+                l1.next = MergeTwoLists(l1.next, l2);
+                return l1;
+            }
+            l2.next = MergeTwoLists(l1, l2.next);
+            return l2;
+        }
 
         #region 最大子序和 #53
         #region 分治
