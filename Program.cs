@@ -45,9 +45,9 @@ namespace ConsoleApp1
             #endregion
 
             #region 合并两个有序链表 #21
-            ListNode l1, l2, l3, fl;
-            l1 = new ListNode(1, new ListNode(2, new ListNode(4, null)));
-            l2 = new ListNode(1, new ListNode(3, new ListNode(4, null)));
+            //ListNode l1, l2, l3, fl;
+            //l1 = new ListNode(1, new ListNode(2, new ListNode(4, null)));
+            //l2 = new ListNode(1, new ListNode(3, new ListNode(4, null)));
 
             #region 复杂版
             //l3 = fl = null;
@@ -202,7 +202,7 @@ namespace ConsoleApp1
             #endregion
 
             #region 最大子序和 #53
-            int[] nums = new int[] { };
+            //int[] nums = new int[] { };
             #region 动态规划
             //int max = nums[0];
             //int sum = nums[0];
@@ -626,6 +626,23 @@ namespace ConsoleApp1
             //    }
             //    newMat[i / c][i % c] = mat[i / int2][i % int2];
             //}
+            #endregion
+
+            #region 最小K个数 #面试题17.14
+            //int[] arr = new int[] { 1, 4, 7, 2, 5, 8, 3, 6, 9 };
+            //int k = 3;
+            //Array.Sort(arr);
+            //arr = arr.OrderBy(a => a).ToArray();
+
+            //int[] arr2 = new int[k];
+
+            //for (int i = 0; i < k; i++)
+            //{
+            //    arr2[i] = arr[i];
+            //}
+
+            //return arr2;
+
             #endregion
         }
 
